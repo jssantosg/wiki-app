@@ -8,8 +8,8 @@
 <body>
     <h1><%= article.name %></h1>
     <p><%= article.contents %></p>
-    <a href="">Edit</a>
-    <a href="">Delete</a>
+    <a href="/article/<%= article.code_name %>/edit">Edit</a>
+    <a href="/article/<%= article.code_name %>/delete">Delete</a>
     <a href="/">Homepage</a>
 </body>
 </html>

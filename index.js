@@ -23,6 +23,15 @@ app.get('/article/:articlename', (req, res) => {
     }
 });
 
+app.get('/article/:articlename/edit', (req, res) => {
+    try {
+        const article = db.article_getByEncodedName(req.params.articlename);
+        res.render('edit', { article });
+    } catch (error) {
+        res.status(404).send('Article not found');
+    }
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
