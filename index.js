@@ -51,6 +51,15 @@ app.get('/article/:articlename/delete', (req, res) => {
     }
 });
 
+app.post('/article/:articlename/delete', (req, res) => {
+    try {
+        db.article_deleteByEncodedName(req.params.articlename);
+        res.redirect('/');
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
