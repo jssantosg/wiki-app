@@ -64,6 +64,19 @@ app.get('/newarticle', (req, res) => {
     res.render('newarticle');
 });
 
+app.post('/newarticle', (req, res) => {
+    const { name, contents } = req.body;
+    if (!name || !contents) {
+        return res.status(400).send('Name and content are required');
+    }
+    try {
+        const article = db.article_create(name, contents);
+        res.redirect(`/article/${article.code_name}`);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
