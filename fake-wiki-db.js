@@ -5,6 +5,26 @@ let pages = {
     name: 'init',
     contents: 'This is a simple initial page to prove that pages work',
   },
+  'Article One': {
+    code_name: 'Article One',
+    name: 'Article One',
+    contents: 'This is the article one',
+  },
+  'Article Two': {
+    code_name: 'Article Two',
+    name: 'Article Two',
+    contents: 'This is the article two',
+  },
+  'Article Three': {
+    code_name: 'Article Three',
+    name: 'Article Three',
+    contents: 'This is the article three',
+  },
+  'Article Four': {
+    code_name: 'Article Four',
+    name: 'Article Four',
+    contents: 'This is the article four',
+  },
 }
 
 

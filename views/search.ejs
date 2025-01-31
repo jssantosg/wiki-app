@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results for "<%= query %>"</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Search Results for "<%= query %>"</h1>
+  <ul>
+    <% results.forEach(article => { %>
+      <li><a href="/article/<%= article.code_name %>"><%= article.name %></a></li>
+    <% }); %>
+  </ul>
+  <a href="/">Back to Home</a>
+</body>
+</html>

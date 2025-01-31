@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki Articles</title>
+  <title>Wiki Homepage</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Wiki Articles</h1>
-    <ul>
-        <% articles.forEach(article => { %>
-            <li><a href="/article/<%= article.code_name %>"><%= article.name %></a></li>
-        <% }); %>    
-    </ul>
-    <a href="/newarticle">Create New Article</a>
+  <h1>Wiki Articles</h1>
+  <ul>
+    <% articles.forEach(article => { %>
+      <li><a href="/article/<%= article.code_name %>"><%= article.name %></a></li>
+    <% }); %>
+  </ul>
+  <a href="/newarticle">Create New Article</a>
+  <form action="/search" method="GET">
+    <input type="text" name="q" placeholder="Search articles">
+    <button type="submit">Search</button>
+  </form>
 </body>
 </html>

@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    const articles = db.article_getRandoms(1);
+    const articles = db.article_getRandoms(5);
     res.render('index', { articles });
 });
 
@@ -75,6 +75,16 @@ app.post('/newarticle', (req, res) => {
     } catch (error) {
         res.status(400).send(error.message);
     }
+});
+
+app.get('/search', (req, res) => {
+    const query = req.query.q;
+    if (!query) {
+        return res.redirect('/');
+    }
+    const terms = query.split(' ').filter(term => term.length > 0);
+    const results = db.article_searchByTerms(terms);
+    res.render('search', { query, results });
 });
 
 app.listen(port, () => {
