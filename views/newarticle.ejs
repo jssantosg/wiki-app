@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Article</title>
+</head>
+<body>
+    <h1>Create New Article</h1>
+    <form action="/nwearticle" method="post">
+        <label for="name">Article name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="contents">Content:</label>
+        <textarea name="contents" id="contents" required></textarea>
+        <button type="submit">Create</button>
+    </form>
+    <a href="/">Cancel</a>
+</body>
+</html>
