@@ -62,12 +62,8 @@ app.post('/article/:articlename/delete', (req, res) => {
 
 app.get('/newarticle', (req, res) => {
     res.render('newarticle');
-  });
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
-
-
-
-
