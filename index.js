@@ -10,12 +10,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+    const articles = db.article_getRandoms(1);
+    res.render('index', { articles });
+});
+
+app.get('/article/:articlename', (req, res) => {
+    try {
+        const article = db.article_getByEncodedName(req.params.articlename);
+        res.render('article', { article });
+    } catch (error) {
+        res.status(404).send('Article not found');
+    }
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`)
+});
 
 
 
